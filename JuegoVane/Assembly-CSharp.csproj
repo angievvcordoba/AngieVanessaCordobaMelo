@@ -65,6 +65,7 @@
      <Compile Include="Assets\AssetsF\ASSETS 2D SPACES\StarfieldMaterials\Scripts\Move.cs" />
      <Compile Include="Assets\Scripts\Laser.cs" />
      <Compile Include="Assets\Scripts\MovimientoNave.cs" />
+     <Compile Include="Assets\Scripts\poder.cs" />
      <None Include="Assets\AssetsF\ASSETS 2D SPACES\2D Space Kit\Scripts\WARNING.txt" />
      <None Include="Assets\AssetsF\ASSETS 2D SPACES\2D Space Kit\Backgrounds\Background Tip.txt" />
      <None Include="Assets\AssetsF\ASSETS 2D SPACES\2D Space Kit\Ships and Stations\Rendering Tip.txt" />

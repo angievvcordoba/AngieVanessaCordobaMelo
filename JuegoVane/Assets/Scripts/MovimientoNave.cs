@@ -10,22 +10,58 @@ public class MovimientoNave : MonoBehaviour
     public float movimientoRight;
     public float movimientoUp;
 
-    public GameObject rayoLaser;
+    // public GameObject rayoLaser;
+    public float velocidadNave;
+    private bool poderVelocidad = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        velocidadNave = 15.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        desplazamientoNave();
-        disparar();
+        /* desplazamientoNave();
+         disparar();*/
+
+        float Horizontal = Input.GetAxis("Horizontal") * velocidadNave * Time.deltaTime;
+        print(Horizontal);
+        transform.Translate(Horizontal, 0, 0);
+        aumentarVelocidad();
+    }
+    void aumentarVelocidad()
+    {
+
+        float horizontal = Input.GetAxis("Horizontal");
+
+        if (poderVelocidad == true)
+        {
+
+            transform.Translate(Vector3.right * velocidadNave * 5.0f * horizontal * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector3.right * velocidadNave * horizontal * Time.deltaTime);
+
+
+        }
+
     }
 
-    void desplazamientoNave()
+    public void Poweer()
+    {
+        poderVelocidad = true;
+        StartCoroutine(powerDown());
+    }
+
+    IEnumerator powerDown()
+    {
+        yield return new WaitForSeconds(5.0f);
+        poderVelocidad = false;
+    }
+    /*void desplazamientoNave()
     {
         movimientoRight = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * velocidad * movimientoRight);
@@ -63,5 +99,5 @@ public class MovimientoNave : MonoBehaviour
             Instantiate(rayoLaser, transform.position + new Vector3(0.2f, 0.8f, -1.16f), Quaternion.identity);
             Instantiate(rayoLaser, transform.position + new Vector3(-0.2f, 0.8f, -1.16f), Quaternion.identity);
         }
-    }
+    }*/
 }
